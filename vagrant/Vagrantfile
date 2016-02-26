@@ -6,7 +6,7 @@ servers = [
     :hostname => "master",    
     :box => 'ubuntu/trusty64',
     :ip => '192.168.33.20', 
-    :ram => 2048,
+    :ram => 3072,
     :cpus => 2
   }
 ]
