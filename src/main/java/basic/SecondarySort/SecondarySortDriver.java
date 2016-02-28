@@ -1,4 +1,4 @@
-package SecondarySort;
+package basic.SecondarySort;
 
 import org.apache.log4j.Logger;
 

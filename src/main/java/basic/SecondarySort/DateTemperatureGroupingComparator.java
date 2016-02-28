@@ -1,4 +1,4 @@
-package SecondarySort;
+package basic.SecondarySort;
 
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
