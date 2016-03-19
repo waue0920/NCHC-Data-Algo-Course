@@ -19,6 +19,8 @@ public class WordCountDriver {
         Configuration conf = new Configuration();
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
+        conf.set("mapreduce.job.queuename", "root.MR");
+
         if (otherArgs.length != 2) {
             System.err.println("Usage: <input> <output>  ");
             System.exit(2);
@@ -30,6 +32,7 @@ public class WordCountDriver {
         job.setCombinerClass(WordCountReducer.class);
         job.setReducerClass(WordCountReducer.class);
 
+        job.setNumReduceTasks(1);
 
 
         job.setOutputKeyClass(Text.class);
