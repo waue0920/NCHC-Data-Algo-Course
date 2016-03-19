@@ -1,4 +1,4 @@
-Page_A	1.0
-Page_B	1.0	Page_A
-Page_C	1.0	Page_A,Page_D
-Page_D	1.0
+Page_A	0.25	Page_B,Page_C,Page_D
+Page_B	0.25	Page_A,Page_D
+Page_C	0.25	Page_A
+Page_D	0.25	Page_B,Page_C
