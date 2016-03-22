@@ -1,0 +1,4 @@
+Overcast,Hot,High,Strong
+Rain,Hot,High,Strong
+Overcast,Mild,Normal,Weak
+Sunny,Mild,Normal,Weak
