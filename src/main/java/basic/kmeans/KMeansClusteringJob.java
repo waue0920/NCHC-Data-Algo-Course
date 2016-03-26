@@ -1,6 +1,5 @@
 package basic.kmeans;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.commons.logging.Log;
@@ -25,6 +24,7 @@ public class KMeansClusteringJob {
 
         int iteration = 1;
         Configuration conf = new Configuration();
+        conf.set("mapreduce.job.queuename","root.MR");
         conf.set("num.iteration", iteration + "");
 
         Path in = new Path("files/clustering/import/data");
@@ -32,8 +32,8 @@ public class KMeansClusteringJob {
         conf.set("centroid.path", center.toString());
         Path out = new Path("files/clustering/depth_1");
 
-        Job job = new Job(conf);
-        job.setJobName("KMeans Clustering");
+        Job job = Job.getInstance(conf, "KMeans Clustering");
+        job.setNumReduceTasks(1);
 
         job.setMapperClass(KMeansMapper.class);
         job.setReducerClass(KMeansReducer.class);
@@ -88,10 +88,11 @@ public class KMeansClusteringJob {
 
         while (counter > 0) {
             conf = new Configuration();
+            conf.set("mapreduce.job.queuename","root.MR");
             conf.set("centroid.path", center.toString());
             conf.set("num.iteration", iteration + "");
-            job = new Job(conf);
-            job.setJobName("KMeans Clustering " + iteration);
+            job = Job.getInstance(conf, "KMeans Clustering " + iteration);
+            job.setNumReduceTasks(1);
 
             job.setMapperClass(KMeansMapper.class);
             job.setReducerClass(KMeansReducer.class);
